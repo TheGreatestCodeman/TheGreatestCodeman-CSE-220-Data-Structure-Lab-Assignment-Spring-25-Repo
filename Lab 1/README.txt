@@ -10,4 +10,4 @@ NOTE:
 3) THERE WILL BE 50% PENALTY IF ANY OF THE TWO INSTRUCTIONS ABOVE ISN'T FOLLOWED!!
 4) If you find any issues with the Tester Codes please inform AIB.
 
-**Try to use any modern IDEs like VSCode/Netbeans/IntelliJ**
+**Hey it's the greatest codeman here, These instructions were given to me by the faculty. Ignore these. As these have outlived their usefulness :3. The docx file contains the tasks/questions to be done. Driver code has also been provided.**
