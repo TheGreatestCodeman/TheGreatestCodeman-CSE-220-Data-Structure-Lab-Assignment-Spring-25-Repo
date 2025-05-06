@@ -1,0 +1,120 @@
+//Task 01: Merge Sorted Array
+class Task1{
+
+    //Complete this method so that it gives the Expected Output
+    public static Integer[] mergeSortedArray( Integer[] arr1, Integer[] arr2 ){
+        int arraytotallength = arr1.length + arr2.length;
+        Integer mergedarray [] = new Integer [arraytotallength];
+        int temp = arr1.length;
+        for(int i =0; i<arr1.length; i++){
+            mergedarray[i] = arr1[i];
+        }
+        for(int i =0; i<arr2.length; i++){
+            mergedarray[temp++] = arr2[i];
+        }
+        for(int i = 1; i < arraytotallength; ++i){
+            int key = mergedarray[i];
+            int j = i-1;
+            
+            while(j >= 0 && mergedarray[j] > key){
+                mergedarray[j+1] = mergedarray[j];
+                --j;
+            }
+            mergedarray[j+1] = key;
+        }
+        return mergedarray;
+    }
+
+//Task 02: Container with Most Water
+class Task2{
+
+    //Complete this method so that it gives the Expected Output
+    public static void mostWater( Integer[] height ){
+        int max = 0;
+        int temp = 0;
+        for(int i=0; i<height.length; i++){
+            for(int j=0; j<height.length; j++){
+                if(height[i]>=height[j]){
+                    temp = j-i;
+                    if(temp <0){
+                        temp *=-1;
+                    }
+                    if(height[i]*temp > max){
+                        max = height[i]*(--temp);
+                    }
+                }
+            }
+        }
+        System.out.print(max);
+    }
+
+// Task03: check_similar
+public class Task3 {
+
+    //Two heads are being passed onto this method
+    //and a String is expected as return
+    public static String checkSimilar( Node building1, Node building2 ){
+        
+        //You're not suppose to create any new Linked List for this task
+        
+        //TODO
+        while(building1 != null && building2 != null){
+            if(!building1.elem.equals(building2.elem)){
+                return "Not similar";
+            }
+            building1 = building1.next;
+            building2 = building2.next;
+            if(building1 == null && building2 == null){
+                return "Similar";
+            }
+        }
+        return "Not Similar";
+    }
+
+// Task04: Assemble Conga Line
+public class Task4 {
+
+    public static Boolean assembleCongaLine(Node head){
+        
+        //You're not suppose to create any new Linked List for this task
+
+        //TODO
+        //Hint: the Node elements are actually Object, you can type cast them
+        //      into int or Integer like the following:
+        //        (int)n.elem  or  (Integer)n.elem
+        
+        //When you're ready to return the boolean remove the following line
+        Node n;
+        n = head;
+        while(n != null && n.next!= null){
+            if((Integer)n.elem > (Integer)n.next.elem){
+                return false;
+            }
+            n = n.next;
+        }
+        return true;
+    }
+
+public class Task5 {
+    public static int sumDist(Node head, Integer[] distArr) {
+        // To Do
+        int count = 0;
+        int LLsize = 0;
+        Node temp = head;
+        while(temp != null){
+            LLsize++;
+            temp = temp.next;
+        }
+        for(int i=0; i<distArr.length; i++){
+            if(distArr[i]>LLsize || distArr[i]<0){
+                continue;
+            }
+            else{
+                for(int j=0; j<i; j++){
+                    temp = temp.next;
+                }
+                count += (int)temp.elem;
+            }
+        }
+        return count;
+    }
